@@ -1,0 +1,81 @@
+body {
+  font-family: sans-serif;
+}
+
+.product-search-container {
+  display: flex;
+  position: relative;
+}
+
+.product-search-input {
+  width: 100%;
+  display: flex;
+  align-items: center;
+  flex-wrap: wrap;
+  gap: 8px;
+  padding: 8px 12px;
+  border: 1px solid #ccc;
+  border-radius: 20px
+}
+
+.product-search-input input {
+  border: none;
+}
+
+.product-search-input input:focus {
+  outline: none;
+}
+
+.suggestions-list {
+  width: 300px;
+  max-height: 300px;
+  overflow-y: scroll;
+  list-style: none;
+  padding: 0;
+  margin: 0;
+  position: absolute;
+  background-color: #fff;
+  border: 1px solid #ccc;
+
+  border-radius: 10px;
+}
+
+.suggestions-list li {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  padding: 8px 10px;
+  cursor: pointer;
+  border-bottom: 1px solid #ccc;
+}
+
+.suggestions-list li:last-child {
+  border-bottom: none;
+}
+
+.suggestions-list li img {
+  height: 40px
+}
+
+.suggestions-list li:hover {
+  background-color: #ccc;
+}
+
+.user-pill {
+  height: 20px;
+  display: flex;
+  gap: 5px;
+  background-color: #121212;
+  color: #fafafa;
+  padding: 5px 10px;
+  border-radius: 16px;
+  cursor: pointer;
+}
+
+.user-pill img {
+  height: 100%;
+}
+
+.suggestions-list li.active {
+  background-color: #ccc;
+}
