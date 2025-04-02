@@ -2,6 +2,8 @@ import { useState } from "react";
 import "./App.css";
 import InfiniteScroll from "./components/infinite-scroll";
 import InfiniteScrollInterSectionObs from "./components/infinite-scroll-obs";
+import LoadingComponent from "./components/loading.component";
+import itemComponent from "./components/item.component";
 
 function App() {
   const arr = [...new Array(40)];
@@ -20,12 +22,22 @@ function App() {
   return (
     <>
       <h1 className="heading">Infinite Scroll</h1>
-      {/* <InfiniteScroll data={data} loadmore={loadmore} loading={loading} /> */}
-      <InfiniteScrollInterSectionObs
-        data={data}
-        loadmore={loadmore}
-        loading={loading}
-      />
+      <div className="container">
+        <InfiniteScroll
+          data={data}
+          loadmore={loadmore}
+          loading={loading}
+          loadingComponent={LoadingComponent}
+          listItem={itemComponent}
+        />
+        {/* <InfiniteScrollInterSectionObs
+          data={data}
+          loadmore={loadmore}
+          loading={loading}
+          loadingComponent={LoadingComponent}
+          listItem={itemComponent}
+        /> */}
+      </div>
     </>
   );
 }

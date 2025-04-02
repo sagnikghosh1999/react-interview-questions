@@ -1,8 +1,12 @@
-import React, { useState } from "react";
-
 const THRESHOLD = 20;
 
-const InfiniteScroll = ({ data, loading, loadmore }) => {
+const InfiniteScroll = ({
+  data,
+  loading,
+  loadmore,
+  loadingComponent: LoadingComponent,
+  listItem: ListItemComponent,
+}) => {
   const handleScroll = (e) => {
     const remainingScroll =
       e.target.scrollHeight - e.target.clientHeight - e.target.scrollTop;
@@ -10,15 +14,18 @@ const InfiniteScroll = ({ data, loading, loadmore }) => {
   };
 
   return (
-    <div>
-      <div className="container" onScroll={handleScroll}>
-        {data.map((_, idx) => (
-          <div key={idx} className="list-item">
-            {idx + 1}
-          </div>
-        ))}
-        {loading && <div className="list-item">Loading...</div>}
-      </div>
+    <div
+      style={{
+        height: "100%",
+        width: "100%",
+        overflowY: "auto",
+      }}
+      onScroll={handleScroll}
+    >
+      {data.map((_, idx) => (
+        <ListItemComponent key={idx} value={idx + 1} />
+      ))}
+      {loading && <LoadingComponent />}
     </div>
   );
 };
