@@ -1,0 +1,23 @@
+.heading {
+  text-align: center;
+  font-size: 28px;
+  margin: 20px auto;
+}
+
+.container {
+  height: 500px;
+  width: 300px;
+  margin: 20px auto;
+  overflow-y: auto;
+}
+
+.container .list-item {
+  text-align: center;
+  background: #9ba06b;
+  height: 50px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  padding: 8px 28px;
+  border: 1px solid #535353;
+}
