@@ -19,11 +19,14 @@ const InfiniteScrollVirtualList = ({
   const [scrollTop, setScrollTop] = useState(0);
   const containerRef = useRef(null);
   const observerRef = useRef(null);
+  const lastObservedRef = useRef(null);
   const itemRefs = useRef(new Map());
 
   const handleScroll = () => {
     if (!containerRef.current) return;
-    setScrollTop(containerRef.current.scrollTop);
+    requestAnimationFrame(() => {
+      setScrollTop(containerRef.current.scrollTop);
+    });
   };
 
   useEffect(() => {
@@ -38,8 +41,9 @@ const InfiniteScrollVirtualList = ({
 
   const lastitemRef = useCallback(
     (node) => {
-      if (loading || !node) return;
+      if (loading || !node || lastObservedRef.current === node) return;
       if (observerRef.current) observerRef.current.disconnect();
+      lastObservedRef.current = node;
       observerRef.current = new IntersectionObserver(
         ([entry]) => {
           if (entry.isIntersecting) {

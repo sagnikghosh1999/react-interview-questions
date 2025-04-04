@@ -5,7 +5,7 @@ import Loading from "./components/Loading";
 import ListItem from "./components/Listitem";
 
 const TOTAL_ITEMS = 1000; // Total data to simulate
-const BATCH_SIZE = 20; // Number of items to load at a time
+const BATCH_SIZE = 50; // Number of items to load at a time
 const VIEWPORT_HEIGHT = 500; // Height of scrollable container
 
 function App() {
