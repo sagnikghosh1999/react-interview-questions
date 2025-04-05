@@ -1,0 +1,27 @@
+.boxes {
+  padding: 50px;
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  width: fit-content;
+  gap: 20px;
+}
+
+.box {
+  width: 80px;
+  height: 80px;
+  transition: background-color 0.4s ease;
+}
+
+.box.visible {
+  cursor: pointer;
+  border: 1px solid #121212;
+}
+
+.box.hidden {
+  cursor: initial;
+  opacity: 0;
+}
+
+.box.selected {
+  background-color: #0bcc27;
+}
